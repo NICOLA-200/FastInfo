@@ -1,11 +1,11 @@
 import './App.css'
-import { Login } from './pages'
+import { Dashboard } from './pages'
 
 const App = () => {
 
   return (
     <>
-      <Login />
+      <Dashboard />
     </>
   )
 }
