@@ -202,7 +202,7 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      <div className="w-full bg-[#D8D9E6] p-12 flex items-center justify-center">
+      <div className="w-full bg-[#D8D9E6] p-12 flex items-center justify-center mt-12">
         <img
           src={logo}
           alt="/"
@@ -213,21 +213,43 @@ const Dashboard = () => {
             <h1 className="font-['Inter'] text-[25px] font-bold">
               For Providers
             </h1>
-            <p className="font-['Poppins']">How it works?</p>
+            <p className="font-['Poppins']">
+              <a href="#">How it works?</a>
+            </p>
           </div>
           <div className="flex flex-col mx-4">
             <h1 className="font-['Inter'] text-[25px] font-bold">Resources</h1>
-            <p className="font-['Poppins']">Help</p>
-            <p className="font-['Poppins']">Why us?</p>
+            <p className="font-['Poppins']">
+              <a href="#">Help</a>
+            </p>
+            <p className="font-['Poppins']">
+              <a href="#">Why us?</a>
+            </p>
           </div>
           <div className="flex flex-col ml-8">
             <h1 className="font-['Inter'] text-[25px] font-bold">FastInfo</h1>
-            <p className="font-['Poppins']">What is?</p>
-            <p className="font-['Poppins']">Contact</p>
-            <p className="font-['Poppins']">Our team</p>
+            <p className="font-['Poppins']">
+              <a href="#">What is?</a>
+            </p>
+            <p className="font-['Poppins']">
+              <a href="#">Contact</a>
+            </p>
+            <p className="font-['Poppins']">
+              <a href="#">Our team</a>
+            </p>
           </div>
         </div>
       </div>
+      <p className="bg-[#D8D9E6] text-center w-full font-['Poppins']">
+        2024 @ FastInfo - All rights reserved -{" "}
+        <a href="#" className="text-[#2871FF]">
+          Terms of use
+        </a>{" "}
+        -{" "}
+        <a href="#" className="text-[#2871FF]">
+          Privacy policy
+        </a>
+      </p>
     </div>
   );
 };
