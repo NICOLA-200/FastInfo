@@ -186,20 +186,46 @@ const Dashboard = () => {
           </p>
         </div>
       </div>
-      <div className="w-[90%] m-auto bg-gradient-to-b from-[#6675f7] to-[#7f8286] flex flex-col rounded-[100px] mt-20 py-12">
+      <div className="w-[90%] m-auto bg-gradient-to-b from-[#6675f7] to-[#7f8286] flex flex-col rounded-[100px] mt-20 py-12 justify-center items-center">
         <p className="text-white font-['Poppins'] text-[40px] w-4/5 m-auto font-semibold text-center">
           Tell clients what you need them to know about your service.
         </p>
         <p className="text-white font-['Poppins'] text-[40px] w-4/5 m-auto font-semibold text-center">
           Get to know the essential information you need about a service!
         </p>
-        <div className="grid md:grid-cols-2">
-          <button className="bg-[#2871FF] mt-4 font-semibold font-['Poppins'] text-white w-[160px] h-[50px] rounded-[20px]">
+        <div className="flex flex-col w-1/2 md:flex-row">
+          <button className="bg-[#2871FF] mt-4 font-semibold font-['Poppins'] text-white w-[160px] m-auto h-[50px] rounded-[20px]">
             Register
           </button>
-          <button className="bg-[#2871FF] mt-4 font-semibold font-['Poppins'] text-white w-[160px] h-[50px] rounded-[20px]">
+          <button className="bg-[#2871FF] mt-4 font-semibold font-['Poppins'] text-white w-[160px] m-auto h-[50px] rounded-[20px]">
             Search
           </button>
+        </div>
+      </div>
+      <div className="w-full bg-[#D8D9E6] p-12 flex items-center justify-center">
+        <img
+          src={logo}
+          alt="/"
+          className="relative float-left right-40 -top-6"
+        />
+        <div className="grid grid-cols-3">
+          <div className="flex flex-col mr-8">
+            <h1 className="font-['Inter'] text-[25px] font-bold">
+              For Providers
+            </h1>
+            <p className="font-['Poppins']">How it works?</p>
+          </div>
+          <div className="flex flex-col mx-4">
+            <h1 className="font-['Inter'] text-[25px] font-bold">Resources</h1>
+            <p className="font-['Poppins']">Help</p>
+            <p className="font-['Poppins']">Why us?</p>
+          </div>
+          <div className="flex flex-col ml-8">
+            <h1 className="font-['Inter'] text-[25px] font-bold">FastInfo</h1>
+            <p className="font-['Poppins']">What is?</p>
+            <p className="font-['Poppins']">Contact</p>
+            <p className="font-['Poppins']">Our team</p>
+          </div>
         </div>
       </div>
     </div>
