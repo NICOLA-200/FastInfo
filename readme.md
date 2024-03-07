@@ -89,3 +89,21 @@ If you encounter any issues or have any questions, feel free to reach out for su
 - **Twitter**: Follow us on [Twitter](https://twitter.com/Unknown_TNTL) for updates and announcements.
 
 We're here to help! Don't hesitate to reach out if you need assistance with anything related to the project.
+
+## License
+
+This project is licensed under the [MIT License](https://github.com/NICOLA-200/FastInfo). Feel free to use, modify, and distribute this project for personal or commercial use.
+
+## Contributing
+
+We welcome contributions from the community! If you'd like to contribute to this project, please follow these guidelines:
+
+1. Fork the repository and create your branch from `main`.
+2. Clone the forked repository to your local machine.
+3. Make your changes and ensure they align with the project's coding style and guidelines.
+4. Test your changes thoroughly to ensure they work as expected.
+5. Commit your changes with descriptive commit messages.
+6. Push your changes to your forked repository.
+7. Create a pull request to merge your changes into the main repository.
+
+We appreciate your contributions! Thank you for helping make this project better.
