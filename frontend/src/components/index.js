@@ -7,3 +7,6 @@ export { default as ServiceRegistration } from './ServiceRegistration';
 export { default as Footer } from './Footer';
 export { default as GetToKnow } from './GetToKnow';
 export { default as AdvServiceProviders } from './AdvServiceProviders';
+
+
+export { default as Card } from './Card';
