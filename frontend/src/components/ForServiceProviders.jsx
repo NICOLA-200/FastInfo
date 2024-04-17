@@ -11,7 +11,7 @@ const ForServiceProviders = () => {
       </h1>
       <div className="grid lg:grid-cols-2 mt-24 px-16 relative">
         <div className="grid">
-          <img src={photo2} alt="/" className="lg:absolute z-[999] top-0" />
+          <img src={photo2} alt="/" className="lg:absolute  top-0" />
           <div className="bg-gradient-to-br from-[#4f5ac4] to-[#d5d6da] w-[150px] h-[150px] rounded-full relative float-right right-24 lg:mt-96"></div>
         </div>
         <div className="flex flex-col lg:pt-28">

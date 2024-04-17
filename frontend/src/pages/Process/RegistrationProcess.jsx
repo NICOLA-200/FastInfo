@@ -13,14 +13,47 @@ import ProgressBar from "@ramonak/react-progress-bar";
 
 
 
+const  INITIAL_DATA = {
+
+  service_provider: "",
+  type_service: "",
+  provider_description: "",
+  profile_picture: "",
+
+  service_name:"",
+  service_requirement:"",
+  service_description:"",
+
+  product_name:"",
+  product_requirement:"",
+  product_description:"",
+
+  role_name:"",
+  role_requirement:"",
+  role_description:"",
+
+  city:"",
+  country:"",
+  location: {
+      latitude:"",
+      longtude:"",
+  },
+
+
+  phone_number: "",
+  email: "",
+  website: ""
+
+}
+
 
 function AboutModala() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(INITIAL_DATA);
 
-  function updateFields() {
-    // setData(prev = {
-    //  return {...prev, ...fields} 
-    // })
+  function updateFields(fields) {
+    setData(prev => {
+     return {...prev, ...fields} 
+    })
   }
 
    function onSubmit(e) {
@@ -44,9 +77,9 @@ function AboutModala() {
       {step}
       <ProgressBar className="absolute left-[30%] top-[26vh]" maxCompleted={5} width="35vw" height="5px" customLabel=" " bgColor="#488CF2" completed={currentStepIndex + 1} />;
       {!isFirstStep && (
-      <IoMdArrowBack size={27} onClick={back} className="hover:text-neutral-600 absolute left-[27%]   top-[25vh]"/>
+      <IoMdArrowBack size={27} onClick={back} className="hover:text-neutral-600 absolute left-[22.5%] sm:left-[24%] md:left-[27%]   top-[24vh] sm:top-[25vh]"/>
     )}
-      <button onClick="submit" className="absolute left-[65%] p-1 px-4 hover:bg-neutral-200 top-[80vh] bg-white border-[2px] rounded-md">{isLastStep ? "Finish" : "Next"}</button>
+      <button onClick="submit" className="absolute left-[65%] text-white p-1 px-4 hover:bg-blue-800 top-[80vh] bg-blue-600 border-[2px] rounded-md">{isLastStep ? "Finish" : "Next"}</button>
       </form>
       </div>
   )

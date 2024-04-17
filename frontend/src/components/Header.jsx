@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import photo3 from "../assets/photo3.jpg";
+import photo3 from "../assets/photo3.webp";
 
 const Header = () => {
   return (
     <div>
-      <div className="w-full overflow-x-hidden p-16 grid lg:grid-cols-2">
-        <div className="flex flex-col">
+      <div className="w-full  overflow-x-hidden mt-20 p-16 grid lg:grid-cols-2">
+        <div className="flex flex-col justify-center items-center md:text-left text-center gap-2 ">
           <h1 className="lg:text-[54px] md:text-[40px] sm:text-[35px] text-[30px] font-['Inter'] w-[75%] font-bold">
             Get the <span className="text-[#0A0D5C]">service</span> you need{" "}
             <span className="text-[#080EAC]">easily</span> and{" "}

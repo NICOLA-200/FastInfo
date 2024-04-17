@@ -12,7 +12,13 @@ import {
   ServiceRegistration,
 } from "../../components";
 
+import { useCountStore } from '../../store';
+
+
+
 const Dashboard = () => {
+  const count =  useCountStore((state) => state.count)
+  const   increment =  useCountStore((state) => state.increment)
   return (
     <div className="flex flex-col w-full overflow-hidden">
       <Navbar />
@@ -23,7 +29,7 @@ const Dashboard = () => {
       <ForClients />
       <AdvClients />
       <GetToKnow />
-      <Footer />
+      <Footer /> 
     </div>
   );
 };

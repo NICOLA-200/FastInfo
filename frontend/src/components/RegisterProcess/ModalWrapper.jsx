@@ -13,7 +13,7 @@ function ModalWrapper({title , children}) {
 <div className='w-[87%] h-[3px] relative top-20 mx-auto  bg-black opacity-35'></div>
 <span className=' absolute top-7 right-12 z-30 '><IoMdClose className='w-6 h-6' /></span>
 
-<div className=' my-auto mt-20 h-[60%] w-[100%] overflow-scroll'>
+<div className=' my-auto mt-20 h-[45vh]  w-[100%] overflow-x-hidden overflow-y-auto'>
 <h1 className='text-center font-semibold text-2xl mb-6'>{title}</h1>
 
 <div className='flex justify-around flex-wrap gap-7 px-8 md:px-14'>
@@ -21,10 +21,6 @@ function ModalWrapper({title , children}) {
 </div>
 </div>
 
-
-<div className='bg-[#488CF2] absolute bottom-0 w-full h-[15%] md:h-[25%] '>
-<div className="absolute inset-0  bg-white z-20" style={{ clipPath: 'polygon(-1% -1%, 55% -1%, 50% 35%, 0% 35%)' }}></div>
-</div>
 
     </div>
   )

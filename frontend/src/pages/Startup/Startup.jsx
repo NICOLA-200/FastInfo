@@ -2,8 +2,11 @@
 import MinHeader from "../../components/RegisterProcess/MinHeader";
 import StartPolygon1 from "../../assets/StartPolygon1.svg";
 import StartPolygon2 from "../../assets/StartPolygon2.svg";
+import { useNavigate } from "react-router-dom";
 
 function Startup() {
+
+  const navigate =  useNavigate();
   
   return (
     <div className="overflow-hidden h-[100vh] ">
@@ -31,8 +34,8 @@ function Startup() {
           </span>{" "}
           and <span className="text-blue-700 underline"> Privacy Policy</span>
         </p>
-        <button  className="font-bold hover:bg-blue-800 text-white bg-blue-500 p-3 text-2xl px-6 rounded-lg">
-          Start
+        <button onClick={() => {navigate("/registrationProcess")}}  className="font-bold z-20  hover:bg-blue-800 text-white bg-blue-500 p-3 text-2xl px-6 rounded-lg">
+          Start 
         </button>
       </div>
       <img
