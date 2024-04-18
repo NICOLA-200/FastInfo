@@ -2,7 +2,7 @@ import React from 'react'
 
 import school from '../assets/school.png'
 
-function Card() {
+const Card = () => {
   return (
     <div className='shadow-md shadow-neutral-700 pb-3  w-[18rem] space-y-1 overflow-hidden rounded-md'>
         <img src={school} className='w-auto' alt="school" />
