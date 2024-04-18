@@ -343,6 +343,9 @@ function ResultPage() {
           </div>
         </div>
         <div className="flex gap-5 flex-col">
+          <h1 className="text-[34px] font-bold w-[200%]">
+            Similar Service providers
+          </h1>
           <Card />
           <Card />
           <Card />
