@@ -1,37 +1,40 @@
-import { Route ,Routes ,BrowserRouter } from "react-router-dom"
-import './App.css'
-import { Dashboard, Login ,Process,Signup , Startup , Profile, SearchPage ,ResultPage } from './pages'
-import { useCountStore } from "./store"
-
+import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
+import './App.css';
+import { Dashboard, Login, Process, Signup, Startup, Profile, SearchPage, ResultPage } from './pages';
+import { useCountStore } from "./store";
 
 const App = () => {
-  const getCurrentUser = useCountStore(state => state.getCurrentUser)
-  const userName = useCountStore(state => state.userName)
-  const isAuthenticated = useCountStore(state => state.isAuthenticated)
+  const getCurrentUser = useCountStore(state => state.getCurrentUser);
+  const isAuthenticated = useCountStore(state => state.isAuthenticated);
+
   function hasToken() {
-    const token = localStorage.getItem('token')
-      if (token) {
-         getCurrentUser(token)
-      }
+    const token = localStorage.getItem('token');
+    if (token) {
+      getCurrentUser(token);
+    }
   }
-  
-  hasToken()
+
+  hasToken();
+
   return (
     <BrowserRouter>
-       <Routes>
-         <Route path="/" index Component={Dashboard} />
-         <Route path="/Login"  Component={isAuthenticated == false && Login} />
-         <Route path="/Signup"  Component={isAuthenticated == false && Signup} />
-         <Route path="/Startup" Component={!isAuthenticated == true ? Startup : Login} />
-         <Route path="/registrationProcess" Component={!isAuthenticated == true ? Process : Login} />
-         <Route path="/Profile" Component={isAuthenticated == true ? Profile : Login} />
-         <Route path="/SearchPage" Component={SearchPage} />
-         <Route path="/ResultPage" Component={ResultPage} />
-          
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+
+        {/* Redirect to Dashboard if authenticated */}
+        <Route path="/Login" element={isAuthenticated ? <Navigate to="/" /> : <Login />} />
+        <Route path="/Signup" element={isAuthenticated ? <Navigate to="/" /> : <Signup />} />
+
+        {/* Redirect to Login if not authenticated */}
+        <Route path="/Startup" element={isAuthenticated ? <Startup /> : <Navigate to="/Login" />} />
+        <Route path="/registrationProcess" element={isAuthenticated ? <Process /> : <Navigate to="/Login" />} />
+        <Route path="/Profile" element={isAuthenticated ? <Profile /> : <Navigate to="/Login" />} />
+        <Route path="/SearchPage" element={<SearchPage />} />
+        <Route path="/ResultPage" element={<ResultPage />} />
       </Routes>
-    
     </BrowserRouter>
-  )
-}
+  );
+};
+
+export default App;
   
-export default App

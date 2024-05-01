@@ -40,13 +40,13 @@ function Step1({service_name, service_requirement, service_description,product_n
                      placeholder="requirement"
                 
                      value={service_requirement}
-                     onChange={e => updateFields({ product_requirement: e.target.value })}
+                     onChange={e => updateFields({ service_requirement: e.target.value })}
                    />
          
                    <textarea name=""
                     id=""
                     value={service_description}
-                    onChange={e => updateFields({ product_name: e.target.value })}
+                    onChange={e => updateFields({ service_description: e.target.value })}
                      placeholder='Description' cols="30" rows="10" className='w-[80%] p-2 focus:outline-none focus:ring-0 focus:border-blue-900 h-[100px] border-[2px] border-neutral-400 rounded-md'></textarea>
                    </>
       }    

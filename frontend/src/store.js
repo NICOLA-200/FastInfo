@@ -1,50 +1,90 @@
 import { create } from "zustand";
 import axios from 'axios'
+import { jwtDecode } from "jwt-decode";
+
 
 export  const useCountStore  = create((set) => (
      {count: 0,
       isAuthenticated: false,
+      id:"",
       userName:"",
+      exist: false,
+      wrong: false,
+      loading: false,
       increment: () => {
          set((state) => (
           {count: state.count + 1}
          ))
      },
-     decrement: () => {
+     setExisting: () => {
+              
+          set((
+               {exist: false,  wrong: false}
+          ))
+
+     },
+     setLoading: () => {
+              
+          set((
+               {loading: false}
+          ))
 
      },
      getCurrentUser: async (token) => {
-          
-      const { data } = await axios.get("http://localhost:3000/user/currentUser", {token})
+          const data  = jwtDecode(token)
+          console.log(data)
+     //  const { data } = await axios.get("http://localhost:3000/user/currentUser", {token})
          if (data) {
           set((
-               {userName: data.username, isAuthenticated:true}
+               {userName: data.username, isAuthenticated:true , id:data.id}
           ))
      }
      },
      signUp : async (data) => {
-          const { response } = await axios.post("http://localhost:3000/user/signup", { data })
-          if (response) {
-               localStorage.setItem('token', response.token)
+          console.log(data)
+          const  response  = await axios.post("http://localhost:3000/api/auth/register/user", { data })
+          console.log("the response")
+          console.log(response.data.exist)
+          if (!response.data?.exist) {
+               localStorage.setItem('token', response.data.accessToken)
                
-           set((
-                {userName: response.username, isAuthenticated:true}
-           ))
+               set((
+                    {userName: response.data.username, isAuthenticated:true}
+               ))
+
+
+      } else {
+          set((
+               {
+                    exist : response.data.exist,
+                    isAuthenticated: false
+               }
+          ))
       }
      },
      logIn : async (data) => {
-          const { response } = await axios.post("http://localhost:3000/user/login", { data })
-          if (response) {
-               localStorage.setItem('token', response.token)
+          console.log("something")
+          const response = await axios.post("http://localhost:3000/api/auth/login/user", { data })
+          console.log("the response")
+          console.log(response)
+          if (!response.data?.wrong) {
+               localStorage.setItem('token', response.data.accessToken)
                
            set((
-                {userName: response.username, isAuthenticated:true}
+                {userName: response.data.username, isAuthenticated:true}
            ))
+      } else {
+          set((
+               {
+                    wrong : response.data.wrong,
+                    isAuthenticated: false
+               }
+          ))
       }
      },
      logOut : () => {
          localStorage.removeItem("token")
-
+        
           set((
                {isAuthenticated:false}
           ))

@@ -9,7 +9,7 @@ const ForClients = () => {
       <h1 className="md:text-[40px] sm:text-[35px] text-[30px] lg:text-[50px] font-bold font-['Inter'] m-auto mt-12 text-center">
         FastInfo for clients
       </h1>
-      <div className="grid lg:grid-cols-2 mt-0 lg:mt-24 px-16 relative">
+      <div className="grid lg:grid-cols-2 mt-0 lg:mt-24 px-16 -z-20 relative">
         <div className="flex flex-col pt-28">
           <div className="flex">
             <FaLongArrowAltRight />
@@ -38,7 +38,7 @@ const ForClients = () => {
           <img
             src={photo1}
             alt="/"
-            className="lg:absolute relative top-0 ml-12"
+            className="lg:absolute relative top-0 -z-20 ml-12"
           />
           <div className="bg-gradient-to-br from-[#4f5ac4] to-[#d5d6da] w-[150px] h-[150px] rounded-full relative float-left"></div>
         </div>

@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import  Loading from "../../components/loader/Loading"
 import axios from "axios";
 import { useCountStore } from "../../store";
+import  { jwtDecode } from "jwt-decode";
 
 const Login = () => {
   const initialState = {
@@ -20,19 +21,29 @@ const Login = () => {
   const [data, setData] = useState(initialState);
   const [isloading, setIsloading ]  = useState(false);
   const navigate   = useNavigate();
-  const { logIn }  = useCountStore(); 
+  const { logIn , isAuthenticated ,wrong ,  setExisting }  = useCountStore(); 
 
   const handleChange = (e) => {
+    setExisting()
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const handleSubmit   = async (e) => {
+    
     e.preventDefault()
     setIsloading(true)
 
     logIn(data)
-    navigate("/")
+
+    setIsloading(false)
+
+
     
+  }
+
+  if (isAuthenticated) {
+    setIsloading(false)
+    navigate("/")
   }
 
 
@@ -61,7 +72,7 @@ const Login = () => {
           action=""
           className="flex border-[2px]  px-12 rounded-md shadow-md shadow-neutral-700 flex-col text-center mt-7 shadow-sm gap-y-12"
         >
-          <h3 className="font-semibold text-blue-700 mb-[5vw] sm:text-4xl text-3xl ">
+          <h3 className="font-semibold text-blue-700 mb-5 mt-5 sm:text-4xl text-3xl ">
             Login
           </h3>
           <input
@@ -81,14 +92,24 @@ const Login = () => {
             onChange={handleChange}
           />
 
+      
+{wrong && <p className="text-red-800 p-0 m-o">Wrong password or email!</p> }
+
           <button className="text-white bg-blue-500  text-2xl p-3 rounded-md font-semibold hover:bg-blue-900">
-            Login
+          {isloading ? <div className="text-center mx-auto ml-28 w-full"> <Loading/></div> : "Login"} 
           </button>
           <button className="p-e text-sky-950 border-[3px] border-blue-900 bg-white sm:text-2xl text-xl p-3 rounded-md font-semibold">
           <GoogleLogin width={240}
   onSuccess={credentialResponse => {
     console.log(credentialResponse);
-    localStorage.setItem('token',credentialResponse.credential)
+    // localStorage.setItem('token',credentialResponse.credential)
+    const data2 = jwtDecode(credentialResponse.credential)
+    const dat  = {
+      email: data2.email,
+       username: data2.given_name,
+       password: "123"
+    } 
+    Login(dat)
   }}
   onError={() => {
     console.log('Login Failed');

@@ -5,7 +5,7 @@ import logo from "../assets/logo.jpg";
 const Footer = () => {
   return (
     <div className="flex flex-col w-full">
-      <div className="w-full bg-[#D8D9E6] p-12 flex flex-col md:flex-row md:flex items-center justify-center mt-12">
+      <div className="w-full bg-[#D8D9E6] p-12 flex flex-col md:flex-row md:flex items-center justify-center md:justify-around mt-12">
         <a href="#">
           <img
             src={logo}
@@ -13,16 +13,16 @@ const Footer = () => {
             className="relative md:float-left md:right-12 lg:right-40 top-0 md:-top-6 mb-4 md:mb-0"
           />
         </a>
-        <div className="grid md:grid-cols-3">
-          <div className="flex flex-col md:mr-8">
+        <div className="grid md:grid-cols-3 gap-10 text-center  ">
+          <div className="flex flex-col md:mr-8 justify-center">
             <h1 className="font-['Inter'] text-[25px] font-bold">
               For Providers
             </h1>
-            <p className="font-['Poppins']">
+            <p className="font-['Poppins'] text-center">
               <a href="#">How it works?</a>
             </p>
           </div>
-          <div className="flex flex-col md:mx-4">
+          <div className="flex flex-col md:mx-4 ">
             <h1 className="font-['Inter'] text-[25px] font-bold">Resources</h1>
             <p className="font-['Poppins']">
               <a href="#">Help</a>

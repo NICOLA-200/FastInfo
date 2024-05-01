@@ -22,22 +22,42 @@ const Login = () => {
   const [data, setData] = useState(initialState);
   const [isloading, setIsloading ]  = useState(false);
   const navigate   = useNavigate();
-  const { signUp }  = useCountStore(); 
+  const { signUp , isAuthenticated , exist ,  setExisting }  = useCountStore(); 
+  const [isExist, setIsExist] = useState(false);
+
+   
+
+
+
+
+  
 
   const handleChange = (e) => {
+      setExisting();
     console.log(e.target.value)
     setData({ ...data, [e.target.name]: e.target.value });
     console.log(data.username)
   };
 
   const handleSubmit   = async (e) => {
+    console.log(isExist)
     e.preventDefault()
     setIsloading(true)
-
+  
     signUp(data)
-    navigate("/")
+    setIsloading(false)
+
+
     
   }
+
+  if (isAuthenticated) {
+    setIsExist(false)
+    setIsloading(false)
+    navigate("/")
+  }
+
+
 
   return (
     <div className=" p-8">
@@ -58,7 +78,7 @@ const Login = () => {
           action=""
           className="flex  border-[2px]  px-12 rounded-md shadow-md shadow-neutral-700 flex-col text-center  mt-7 gap-y-8"
         >
-          <h3 className="font-semibold text-blue-700 mb-10 text-3xl">Signup</h3>
+          <h3 className="font-semibold text-blue-700 mb-5 mt-5 text-3xl">Signup</h3>
           <input
             type="text"
             className="sm:text-2xl text-xl focus:ring-0 focus:outline-none focus:border-blue-900 py-4 border-b-2 border-neutral-400"
@@ -84,19 +104,22 @@ const Login = () => {
             onChange={handleChange}
           />
 
+{exist  &&  <p className="text-red-800 p-0 m-o">Email already used!</p> }
+
           <button className="text-white bg-blue-500 text-2xl p-3 rounded-md font-semibold hover:bg-blue-900">
-            Signup
+             {isloading ? <div className="text-center mx-auto ml-28 w-full"> <Loading/></div> : "Signup"}
           </button>
           <button className="p-e text-sky-950 border-[3px] border-blue-900 bg-white sm:text-2xl text-xl p-3 rounded-md font-semibold">
             <GoogleLogin width={240}
   onSuccess={credentialResponse => {
     console.log(credentialResponse);
     console.log()
-    localStorage.setItem('token',credentialResponse.credential)
+    // localStorage.setItem('token',credentialResponse.credential)
     const data2 = jwtDecode(credentialResponse.credential)
     const dat  = {
       email: data2.email,
-       username: data2.given_name
+       username: data2.given_name,
+       password: "123"
     } 
     signUp(dat)
     // navigate('/')

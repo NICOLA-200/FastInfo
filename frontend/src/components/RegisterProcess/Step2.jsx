@@ -2,16 +2,20 @@ import React from 'react'
 import ModalWrapper from './ModalWrapper'
 import { FaUpload } from "react-icons/fa";
 import { useState } from 'react';
-function Step2({ profile_picture ,updateFields }) {
+function Step2({ profile_picture ,updateFields ,profile_file }) {
 
 
      
           const [selectedImage, setSelectedImage] = useState(null);
+          const [file, setFile] = useState();
         
           const handleImageChange = (event) => {
             const file = event.target.files[0];
             if (file) {
               const reader = new FileReader();
+              setFile(event.target.files[0]);
+              console.log(event.target.files[0])
+              updateFields({profile_file: event.target.files[0]})
               reader.onloadend = () => {
                 updateFields({profile_picture: reader.result})
                 setSelectedImage(reader.result);
